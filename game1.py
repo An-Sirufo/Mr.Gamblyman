@@ -1,14 +1,22 @@
 ##Game 1: Predictive Average
 
+import time
+
+
 def prediction_encryption(to_encrypt):
     creeped = (((to_encrypt + 10) / 2 * 8) - 3 )* 5
     return int(creeped)
 
-print("Welcome to the Predictive Average Game!)
-print("\nNow I'll make my prediction...\nI'll encrypt it with this secret formula: +10 /2 *8 -3 *5 so you don't know it")
+print("Welcome to the Predictive Average Game!")
+time.sleep(1)
+print("Now I'll make my prediction...")
+time.sleep(1)
+print("I'll encrypt it with this secret formula: +10 /2 *8 -3 *5 so you don't know it")
 pred_avg = 5
 creeped = prediction_encryption(pred_avg)
-print("Your encrypted average is: ", creeped)
+time.sleep(2)
+print("Your encrypted average is:", creeped)
+time.sleep(1)
 
 while True:
     num1 = input("\nOk, pick a number from 1 to 10: ")
@@ -16,6 +24,7 @@ while True:
         print("Needs to be a number!")
     else:
         break
+time.sleep(0.5)
 
 while True:        
     num2 = input("Another one please: ")
@@ -25,9 +34,23 @@ while True:
         break
 
 real_avg = (int(num1) + int(num2)) / 2
+time.sleep(1)
 print("Your real average is: ", int(real_avg))
+time.sleep(1)
 print("Let's desencrypt my prediction and see if I was right...")
-print(creeped, "/5 =", creeped / 5, "\n+3 is", (creeped / 5) + 3, "\n/8 is", ((creeped / 5) + 3) / 8, "\n*2 is", (((creeped / 5) + 3) / 8) * 2, "\n-10 is", ((((creeped / 5) + 3) / 8) * 2) - 10)
+time.sleep(2)
+print(creeped, "/5 is", creeped / 5)
+time.sleep(1)
+print("+3 is", (creeped / 5) + 3)
+time.sleep(1)
+print("/8 is", ((creeped / 5) + 3) / 8)
+time.sleep(1)
+print("*2 is", (((creeped / 5) + 3) / 8) * 2)
+time.sleep(1)
+print("-10 is", ((((creeped / 5) + 3) / 8) * 2) - 10)
+time.sleep(2)
+
+print("\nSo my prediction was", float(pred_avg))
 
 if real_avg == pred_avg:
     print("\nSee, I was right, I predicted", float(pred_avg), "and your average is", real_avg)
