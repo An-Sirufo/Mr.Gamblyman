@@ -51,6 +51,7 @@ print("-10 is", ((((creeped / 5) + 3) / 8) * 2) - 10)
 time.sleep(2)
 
 print("\nSo my prediction was", float(pred_avg))
+time.sleep(1)
 
 if real_avg == pred_avg:
     print("\nSee, I was right, I predicted", float(pred_avg), "and your average is", real_avg)
