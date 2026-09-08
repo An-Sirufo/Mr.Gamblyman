@@ -7,5 +7,4 @@ class User:
         self.hobby = hobby
         self.cereal = cereal
 
-    def your_avg(self):
-        
+   
