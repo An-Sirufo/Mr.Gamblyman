@@ -1,9 +1,23 @@
 ##Game 1: High Card
 import random
+import time
 
 class card:
     suits = ['Spades ♠️', 'Clubs ♣️', 'Hearts ♥️', 'Diamonds ♦️']
-    ranks = ['Two of', 'Three of', 'Four of', 'Five of', 'Six of', 'Seven of', 'Eight of', 'Nine of', 'Ten of', 'Jack of', 'Queen of', 'King of', 'Ace of']
+    ranks = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+    rank_name = {1: 'Ace of',
+                2: 'Two of',
+                3: 'Three of',
+                4: 'Four of', 
+                5: 'Five of',
+                6: 'Six of',
+                7: 'Seven of', 
+                8: 'Eight of', 
+                9: 'Nine of', 
+                10: 'Ten of', 
+                11: 'Jack of', 
+                12: 'Queen of', 
+                13: 'King of'}
     
     def __init__(self, suit, rank):
         self.suit = suit
@@ -16,10 +30,36 @@ class card:
         return cls(new_suit, new_rank)
 
     def card_name (self):
-        ##no = self.rank(ranks[no])
-        ##return '{} {} is no. {}'.format(self.rank, self.suit, no)
+        return '{} {}  (number {})'.format(self.rank_name[self.rank], self.suit, self.rank)
+
+print("High Card — PC will draw a card, you'll have to guess if the one you'll draw will be higher or lower than PC's.")
+PC_card = card.shuffle()
+print("PC's card is the {}".format(PC_card.card_name()))
+
+time.sleep(4)
+
+while True:
+    guess = input("Do you think your card will be:\n1. Higher\n2. Lower\n")
+    if not guess in ['1','2','Higher','Lower']:
+        time.sleep(0.5)
+        print("Please pick one of the alternatives")
+    else:
+        break
+
+if guess in ('1', 'Higher'):
+    guess = 1
+else:
+    guess = 0
+
+time.sleep(0.5)
 
 user_card = card.shuffle()
-print(user_card.card_name())
 
-##i wanna know what rank it isssss
+print("Your card is the {}".format(user_card.card_name()))
+## need to compare the result to win or lose
+if user_card.rank == PC_card.rank:
+    print("Tie!")
+elif (user_card.rank > PC_card.rank) == guess:
+    print("You Win!")
+else:
+    print("You Lose!")
