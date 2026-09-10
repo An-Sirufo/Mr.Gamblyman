@@ -32,11 +32,11 @@ class card:
     def card_name (self):
         return '{} {}  (number {})'.format(self.rank_name[self.rank], self.suit, self.rank)
 
-print("High Card — PC will draw a card, you'll have to guess if the one you'll draw will be higher or lower than PC's.")
+print("\nHigh Card — PC will draw a card, you'll have to guess if the one you'll draw will be higher or lower than PC's.")
 PC_card = card.shuffle()
 print("PC's card is the {}".format(PC_card.card_name()))
 
-time.sleep(4)
+time.sleep(3)
 
 while True:
     guess = input("Do you think your card will be:\n1. Higher\n2. Lower\n")
@@ -63,3 +63,5 @@ elif (user_card.rank > PC_card.rank) == guess:
     print("You Win!")
 else:
     print("You Lose!")
+
+    ##we can make games in a row, and use ascii to make it more interesting perhaps. And add points to make them craaaave the winnnnn
