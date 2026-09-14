@@ -8,6 +8,7 @@ play_meaning = {'0': 'Rock', '1': 'Paper', '2': 'Scissors'}
 while True:
     play = input("What will you play?\n0. Rock ✊\n1. Paper 🖐️\n2. Scissors ✌️\n3. Quit\n")
     if play in ['3', 'Quit', 'quit']:
+        print ("Goodbye...")
         quit()
     elif not play in possible:
         print("Pick 0, 1 or 2 please")
@@ -26,7 +27,7 @@ def whoWon(refplayer, otherplayer):
         print("You Win!")
     else:
         print("You Lose!")
-        
+
 time.sleep(1)
 the_game = whoWon(play, pc_play)
 

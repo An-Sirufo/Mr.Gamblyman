@@ -40,7 +40,7 @@ time.sleep(3)
 
 while True:
     guess = input("Do you think your card will be:\n1. Higher\n2. Lower\n")
-    if not guess in ['1','2','Higher','Lower']:
+    if not guess in ['1','2','Higher','Lower','higher','lower']:
         time.sleep(0.5)
         print("Please pick one of the alternatives")
     else:
