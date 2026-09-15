@@ -59,7 +59,7 @@ while will == True:
     will = False
 
     time.sleep(1.5) 
-    if dub == 0:
+    if dub == 0: 
         print("GAME OVER! You're poor as a rat now!\npew pew get shot and die ᡕᠵデᡁ᠊╾━-----💥") 
     else:
         while True:
