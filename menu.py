@@ -1,6 +1,7 @@
 import time
 import highCard
 import rockPaperScissors
+import diceDuel
 
 dub = 10
 
@@ -20,8 +21,8 @@ will = True
 while will == True:
 
     while True:
-        choice = input("What do you want to play now?\n1. High Card\n2. Rock Paper Scissors\nQuit\n")
-        if not choice in ['1', '2', 'quit', 'Quit', 'q']:
+        choice = input("What do you want to play now?\n1. High Card\n2. Rock Paper Scissors\n3. Dice Duel\nQuit\n")
+        if not choice in ['1', '2', '3', 'quit', 'Quit', 'q']:
             time.sleep(0.5)
             print("Please pick a number or type 'quit' to quit")
         else:
@@ -46,6 +47,8 @@ while will == True:
         result = highCard.highC()
     elif choice == '2':
         result = rockPaperScissors.rockps()
+    elif choice == '3':
+        result = diceDuel.dduel()
 
     if result == 1: ##win
         dub += bet

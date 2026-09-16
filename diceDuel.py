@@ -19,30 +19,28 @@ def dduel():
     di1, di2 = random.randint(1, 6), random.randint(1, 6)
     player_sum = di1 + di2
 
+    def styling(dice, off_range, offset):
+        if dice in off_range:
+            dice += random.randint(*offset)
+        return dice
+
     if style == '1':
-        prob_offset = random.randint(0,2)
-        if di1 in range(3,5):
-            print(di1, 'di1',prob_offset)
-            di1 += prob_offset
-        if di2 in range(3,5):
-            print(di2, 'di2',prob_offset)
-            di2 += prob_offset
-    elif style == '2' and (player_sum in range(1,5) or player_sum in range(9,13)):
-        prob_offset = random.randint(0,2)
-        di1 += prob_offset
-        di2 += prob_offset
+        di1, di2 = styling(di1, range(3, 5), (-2, 2)), styling(di2, range(3, 5), (-2, 2))
+    elif style =='2':
+        di1, di2 = styling(di1, range(1, 2), (0, 2)), styling(di2, range(1, 2), (0, 2))
+        di1, di2 = styling(di1, range(5, 6), (-2, 0)), styling(di2, range(5, 6), (-2, 0))
 
     pcdi1, pcdi2 = random.randint(1, 6), random.randint(1, 6)
     pc_sum = pcdi1 + pcdi2
 
+    player_sum = di1 + di2
+
     print('rolling the dice.............')
-    time.sleep(1.5)
+    time.sleep(1)
     print("Your dice roll resulted in {} and {}, a sum of {}".format(di_name[di1], di_name[di2], player_sum))
     time.sleep(0.5)
     print("PC's dice roll resulted in {} and {}, a sum of {}".format(di_name[pcdi1], di_name[pcdi2], pc_sum))
-    time.sleep(0.5)
-
-    player_sum = di1 + di2
+    time.sleep(1)
 
     if player_sum == pc_sum:
         print("It's a tie! You both had the same results!")
@@ -55,5 +53,3 @@ def dduel():
         result = False
 
     return result
-
-dduel()
