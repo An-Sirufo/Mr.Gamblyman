@@ -72,6 +72,4 @@ def highC():
         result = False
 
     return result
-
-
         ##we can make games in a row, and use ascii to make it more interesting perhaps. And add points to make them craaaave the winnnnn

@@ -66,11 +66,14 @@ while will == True:
         print("GAME OVER! You're poor as a rat now!\npew pew get shot and die ᡕᠵデᡁ᠊╾━-----💥") 
     else:
         while True:
-            will = input("Wanna keep going?(Y/N)\n")
-            if not will in ['n','N','No','no','quit', 'y', 'Y', 'yes', 'Yes', 'yis']:
+            will = input("Wanna keep going?(Yes(1) / No(2))\n")
+            if not will in ['n','N','No','no','quit', 'y', 'Y', 'yes', 'Yes', 'yis', '1', '2']:
                 print('Please pick y (yes) or n (no)')
             else:
                 break
     
-    if will in ['y', 'Y', 'yes', 'Yes', 'yis']:
+    if will in ['y', 'Y', 'yes', 'Yes', 'yis', '1']:
         will = True
+
+    if will in ['n','N','No','no','quit', '2']:
+        print("You finished with {}! I'm not smart enough to know if that's good or bad :)".format(dub_name(dub)))
