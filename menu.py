@@ -7,13 +7,13 @@ dub = 10
 
 def dub_name(dub):
     if dub in range(-2,2):
-        return "{} Doubloon".format(dub)
+        return f"{dub} Doubloon"
     else:
-        return "{} Doubloons".format(dub)
+        return f"{dub} Doubloons"
 
 print("Hello! I'm Mr. Gamblyman, I'll be your host tonight.")
 time.sleep(1)
-print("You start with {}, your job is to multiply this using only your LUCK.".format(dub_name(dub)))
+print(f"You start with {dub_name(dub)}, your job is to multiply this using only your LUCK.")
 time.sleep(1)
 
 will = True
@@ -32,7 +32,7 @@ while will == True:
         quit()
     else:
         while True:
-            bet = input("How much will you bet? You have {}.\n".format(dub_name(dub)))
+            bet = input(f"How much will you bet? You have {dub_name(dub)}.\n")
             if not bet.isdigit():
                 print("Pick a number, please")
             elif int(bet) > dub:
@@ -52,10 +52,10 @@ while will == True:
 
     if result == 1: ##win
         dub += bet
-        print("Congrats! You win {}, so now you have {}.".format(dub_name(bet), dub_name(dub)))
+        print(f"Congrats! You win {dub_name(bet)}, so now you have {dub_name(dub)}.")
     elif result == 0: ##lose
         dub -= bet
-        print("Oh man! You lost {}, so now you have {}".format(dub_name(bet),dub_name(dub)))
+        print(f"Oh man! You lost {dub_name(bet)}, so now you have {dub_name(dub)}.")
     else: ##tie
         print("Since you tied, nothing changes with your Doubloons")
 
@@ -67,13 +67,11 @@ while will == True:
     else:
         while True:
             will = input("Wanna keep going?(Yes(1) / No(2))\n")
-            if not will in ['n','N','No','no','quit', 'y', 'Y', 'yes', 'Yes', 'yis', '1', '2']:
-                print('Please pick y (yes) or n (no)')
-            else:
+            if will in ['y', 'Y', 'yes', 'Yes', 'yis', '1']:
+                will = True
                 break
-    
-    if will in ['y', 'Y', 'yes', 'Yes', 'yis', '1']:
-        will = True
-
-    if will in ['n','N','No','no','quit', '2']:
-        print("You finished with {}! I'm not smart enough to know if that's good or bad :)".format(dub_name(dub)))
+            elif will in ['n','N','No','no','quit', '2']:
+                print(f"You finished with {dub_name(dub)}! I'm not smart enough to know if that's good or bad :)")
+                break
+            else:
+                print('Please pick 1 (yes) or 2 (no)')
