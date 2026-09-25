@@ -33,7 +33,7 @@ while will == True:
     else:
         while True:
             bet = input(f"How much will you bet? You have {dub_name(dub)}.\n")
-            if not bet.isdigit():
+            if not bet.isdecimal():
                 print("Pick a number, please")
             elif int(bet) > dub:
                 print("You're not that rich, buddy")

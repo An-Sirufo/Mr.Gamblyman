@@ -6,19 +6,37 @@ import random
 s = '\033[4m' ## for start of underline formatting
 e = '\033[0m' ## for end of underline formatting
 
-play = input("Which square will you pick?" + f'{s}' + "\n 1 | 2 | 3 \n 4 | 5 | 6 "+ f'{e}' +"\n 7 | 8 | 9 \n")
-play = int(play) ##needs to make check for if number and if it's a possible play, also quit option
-
-
 board_dict = {}
+board_coord = []
 play_code = 1
 
 for row in range(0,3):
+    board_coord.append([])
     for item in range(0,3):
         board_dict.update({play_code : (row,item)})
+        board_coord[row].append(play_code)
         play_code += 1
 
 
-print("Model:           Real one:\n" + f'{s}' + " 1 | 2 | 3 " + f'{e}' + "      " + f'{s}' + f'   |   |   \n 4 | 5 | 6 ' + f'{e}' + "      " + f'{s}' + "   |   |   \n" + f'{e}' + " 7 | 8 | 9          |   |   ")
+def board(coord):
+    return f'{s}' + f" {coord[0][0]} | {coord[0][1]} | {coord[0][2]} \n {coord[1][0]} | {coord[1][1]} | {coord[1][2]} "+ f'{e}' + f"\n {coord[2][0]} | {coord[2][1]} | {coord[2][2]} \n"
 
-##possibly make a function to make it easier to do this crazy thing
+play = input("Which square will you pick?\n" + board(board_coord))
+while True:
+    if play.isdigit():
+        play = int(play)
+    else:
+        play = input("Please write a number between 1 and 9\n")
+    if not play in range(1,10):
+        play = input("Please write a number between 1 and 9\n")
+    else:
+        break
+
+
+def update_board(play): #hmmmmmmmmm should I make it print here?? there's 2 fuctions for updating the board now....
+    x, y = board_dict[play]
+    board_coord[x][y] = "X"
+    print(board(board_coord))
+
+pc_play = random.choice(range(1,10))
+print(pc_play)
